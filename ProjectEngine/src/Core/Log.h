@@ -4,6 +4,7 @@
 
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 
 namespace ProjectEngine
 {
@@ -26,7 +27,7 @@ namespace ProjectEngine
 #define PE_CORE_INFO(...)		::ProjectEngine::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define PE_CORE_WARN(...)		::ProjectEngine::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define PE_CORE_ERROR(...)		::ProjectEngine::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define PE_CORE_FATAL(...)		::ProjectEngine::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define PE_CORE_CRITICAL(...)	::ProjectEngine::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 
 // Client log macros
@@ -34,4 +35,4 @@ namespace ProjectEngine
 #define PE_INFO(...)			::ProjectEngine::Log::GetClientLogger()->info(__VA_ARGS__)
 #define PE_WARN(...)			::ProjectEngine::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define PE_ERROR(...)			::ProjectEngine::Log::GetClientLogger()->error(__VA_ARGS__)
-#define PE_FATAL(...)			::ProjectEngine::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define PE_CRITICAL(...)		::ProjectEngine::Log::GetClientLogger()->critical(__VA_ARGS__)
