@@ -18,6 +18,9 @@ project "ProjectEngine"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "pepch.h"
+	pchsource "ProjectEngine/src/pepch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

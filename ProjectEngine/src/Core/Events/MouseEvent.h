@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace ProjectEngine
 {
 	class PROJECTENGINE_API MouseMovedEvent : public Event

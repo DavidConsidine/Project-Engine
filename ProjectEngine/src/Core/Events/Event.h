@@ -1,9 +1,7 @@
 #pragma once
 
+#include "pepch.h"
 #include "Core/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace ProjectEngine
 {
