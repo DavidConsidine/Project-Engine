@@ -14,10 +14,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "ProjectEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "ProjectEngine/vendor/Glad/include"
+IncludeDir["ImGui"] = "ProjectEngine/vendor/imgui"
 
 -- includes glfw premake file
 include "ProjectEngine/vendor/GLFW"
 include "ProjectEngine/vendor/Glad"
+include "ProjectEngine/vendor/imgui"
 
 project "ProjectEngine"
 	location "ProjectEngine"
@@ -41,13 +43,15 @@ project "ProjectEngine"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
