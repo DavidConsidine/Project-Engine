@@ -10,6 +10,10 @@
 	#error Project Engine currently supports Windows only.
 #endif
 
+#ifdef PE_DEBUG
+	#define PE_ENABLE_ASSERTS
+#endif
+
 #ifdef PE_ENABLE_ASSERTS
 	#define PE_ASSERT(x, ...) {if(!x) {PE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define PE_CORE_ASSERT(x, ...) {if(!x) {PE_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
