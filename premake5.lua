@@ -1,5 +1,6 @@
 workspace "ProjectEngine"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -16,10 +17,11 @@ IncludeDir["GLFW"] = "ProjectEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "ProjectEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "ProjectEngine/vendor/imgui"
 
--- includes glfw premake file
-include "ProjectEngine/vendor/GLFW"
-include "ProjectEngine/vendor/Glad"
-include "ProjectEngine/vendor/imgui"
+group "Dependencies"
+	include "ProjectEngine/vendor/GLFW"
+	include "ProjectEngine/vendor/Glad"
+	include "ProjectEngine/vendor/imgui"
+group ""
 
 project "ProjectEngine"
 	location "ProjectEngine"
