@@ -7,3 +7,6 @@
 [submodule "ProjectEngine/vendor/imgui"]
 	path = ProjectEngine/vendor/imgui
 	url = https://github.com/DavidConsidine/imgui
+[submodule "ProjectEngine/vendor/glm"]
+	path = ProjectEngine/vendor/glm
+	url = https://github.com/g-truc/glm
