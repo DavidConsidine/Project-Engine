@@ -1,5 +1,6 @@
 #include <ProjectEngine.h>
 
+#include "imgui/imgui.h"
 
 class ExampleLayer : public ProjectEngine::Layer
 {
@@ -15,6 +16,13 @@ public:
 		{
 			PE_INFO("Tab key is pressed. (poll)");
 		}
+	}
+
+	virtual void OnImGuiRender()
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
 	}
 
 	void OnEvent(ProjectEngine::Event& event) override
@@ -39,7 +47,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new ProjectEngine::ImGuiLayer());
 	}
 
 	~Sandbox()
