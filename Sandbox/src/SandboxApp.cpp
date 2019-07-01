@@ -10,12 +10,23 @@ public:
 
 	void OnUpdate() override
 	{
-		PE_INFO("ExampleLayer::OnUpdate");
+		if (ProjectEngine::Input::IsKeyPressed(PE_KEY_TAB))
+		{
+			PE_INFO("Tab key is pressed. (poll)");
+		}
 	}
 
 	void OnEvent(ProjectEngine::Event& event) override
 	{
-		PE_TRACE("{0}", event);
+		if (event.GetEventType() == ProjectEngine::EventType::KeyPressed)
+		{
+			ProjectEngine::KeyPressedEvent& e = (ProjectEngine::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == PE_KEY_TAB)
+			{
+				PE_INFO("Tab key is pressed. (event)");
+			}
+			PE_INFO("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 
