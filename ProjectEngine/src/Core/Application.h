@@ -8,6 +8,8 @@
 
 #include "Core/ImGui/ImGuiLayer.h"
 
+#include "Core/Renderer/Shader.h"
+
 
 namespace ProjectEngine
 {
@@ -37,6 +39,7 @@ namespace ProjectEngine
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 
 		static Application* s_Instance;
 	};
