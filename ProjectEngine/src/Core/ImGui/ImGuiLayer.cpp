@@ -15,9 +15,7 @@ namespace ProjectEngine
 	ImGuiLayer::ImGuiLayer()
 		: Layer("ImGuiLayer")
 	{}
-
-	ImGuiLayer::~ImGuiLayer() {}
-
+	
 	void ImGuiLayer::OnAttach() 
 	{
 		// set up Dear ImGui context

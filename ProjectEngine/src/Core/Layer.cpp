@@ -8,10 +8,4 @@ namespace ProjectEngine
 		: m_DebugName(debugName)
 	{
 	}
-
-
-	Layer::~Layer()
-	{
-	}
-
 }
