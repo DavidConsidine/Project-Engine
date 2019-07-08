@@ -12,6 +12,7 @@
 #include "Core/Renderer/Buffer.h"
 #include "Core/Renderer/VertexArray.h"
 
+#include "Core/Renderer/OrthographicCamera.h"
 
 namespace ProjectEngine
 {
@@ -45,6 +46,8 @@ namespace ProjectEngine
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 
 		static Application* s_Instance;
 	};
