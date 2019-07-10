@@ -8,15 +8,9 @@
 
 #include "Core/ImGui/ImGuiLayer.h"
 
-#include "Core/Renderer/Shader.h"
-#include "Core/Renderer/Buffer.h"
-#include "Core/Renderer/VertexArray.h"
-
-#include "Core/Renderer/OrthographicCamera.h"
-
 namespace ProjectEngine
 {
-	class PROJECTENGINE_API Application
+	class Application
 	{
 	public:
 		Application();
@@ -40,15 +34,7 @@ namespace ProjectEngine
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
-
+		
 		static Application* s_Instance;
 	};
 
