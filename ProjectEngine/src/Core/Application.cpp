@@ -7,6 +7,10 @@
 
 #include "Input.h"
 
+#include "Core/Core/Timestep.h"
+
+#include "GLFW/glfw3.h"
+
 namespace ProjectEngine
 {
 	Application* Application::s_Instance = nullptr;
@@ -29,11 +33,13 @@ namespace ProjectEngine
 	{
 		while (m_Running)
 		{
-			
+			float time = (float)glfwGetTime(); // Platform::GetTime
+			Timestep timestep = time - m_LastFrameTime;
+			m_LastFrameTime = time;
 
 			for (Layer* layer : m_LayerStack)
 			{
-				layer->OnUpdate();
+				layer->OnUpdate(timestep);
 			}
 
 			m_ImGuiLayer->Begin();
