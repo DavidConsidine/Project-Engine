@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #ifdef PE_PLATFORM_WINDOWS
 	#if PE_DYNAMIC_LINK
 		#ifdef PE_BUILD_DLL
@@ -30,3 +32,12 @@
 #define BIT(x) (1 << x)
 
 #define PE_BIND_EVENT_FUNC(x) std::bind(&x, this, std::placeholders::_1)
+
+namespace ProjectEngine
+{
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+}

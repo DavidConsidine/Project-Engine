@@ -19,7 +19,7 @@ public:
 				 0.5f, -0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
 				 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
-		std::shared_ptr<ProjectEngine::VertexBuffer> vertexBuffer;
+		ProjectEngine::Ref<ProjectEngine::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(ProjectEngine::VertexBuffer::Create(vertices, sizeof(vertices)));
 		ProjectEngine::BufferLayout layout = {
 			{ ProjectEngine::ShaderDataType::Float3, "a_Position" },
@@ -29,7 +29,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		unsigned int indices[3] = { 0, 1, 2 };
-		std::shared_ptr<ProjectEngine::IndexBuffer> indexBuffer;
+		ProjectEngine::Ref<ProjectEngine::IndexBuffer> indexBuffer;
 		indexBuffer.reset(ProjectEngine::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -42,7 +42,7 @@ public:
 				-0.5f,  0.5f, 0.0f
 		};
 
-		std::shared_ptr<ProjectEngine::VertexBuffer> squarevertexBuffer;
+		ProjectEngine::Ref<ProjectEngine::VertexBuffer> squarevertexBuffer;
 		squarevertexBuffer.reset(ProjectEngine::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squarevertexBuffer->SetLayout({
 				{ProjectEngine::ShaderDataType::Float3, "a_Position"}
@@ -50,7 +50,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squarevertexBuffer);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<ProjectEngine::IndexBuffer> squareindexBuffer;
+		ProjectEngine::Ref<ProjectEngine::IndexBuffer> squareindexBuffer;
 		squareindexBuffer.reset(ProjectEngine::IndexBuffer::Create(squareIndices, sizeof(squareIndices)));
 		m_SquareVA->SetIndexBuffer(squareindexBuffer);
 
@@ -194,11 +194,11 @@ public:
 	}
 
 private:
-	std::shared_ptr<ProjectEngine::Shader> m_Shader;
-	std::shared_ptr<ProjectEngine::VertexArray> m_VertexArray;
+	ProjectEngine::Ref<ProjectEngine::Shader> m_Shader;
+	ProjectEngine::Ref<ProjectEngine::VertexArray> m_VertexArray;
 
-	std::shared_ptr<ProjectEngine::Shader> m_FlatColorShader;
-	std::shared_ptr<ProjectEngine::VertexArray> m_SquareVA;
+	ProjectEngine::Ref<ProjectEngine::Shader> m_FlatColorShader;
+	ProjectEngine::Ref<ProjectEngine::VertexArray> m_SquareVA;
 
 	ProjectEngine::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
