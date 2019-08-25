@@ -6,6 +6,8 @@ namespace ProjectEngine
 	class OpenGLRendererAPI : public RendererAPI
 	{
 	public:
+		virtual void Init() override;
+
 		virtual void SetClearClear(const glm::vec4& color) override;
 		virtual void Clear() override;
 

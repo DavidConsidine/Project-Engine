@@ -15,6 +15,7 @@ namespace ProjectEngine
 			OpenGL = 1
 		};
 	public:
+		virtual void Init() = 0;
 		virtual void SetClearClear(const glm::vec4& color) = 0;
 		virtual void Clear() = 0;
 
