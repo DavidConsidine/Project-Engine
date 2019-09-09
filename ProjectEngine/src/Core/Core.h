@@ -21,8 +21,8 @@
 #endif
 
 #ifdef PE_ENABLE_ASSERTS
-	#define PE_ASSERT(x, ...) {if(!x) {PE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
-	#define PE_CORE_ASSERT(x, ...) {if(!x) {PE_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define PE_ASSERT(x, ...) {if(!(x)) {PE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define PE_CORE_ASSERT(x, ...) {if(!(x)) {PE_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #else
 	#define PE_ASSERT(x, ...)
 	#define PE_CORE_ASSERT(x, ...)

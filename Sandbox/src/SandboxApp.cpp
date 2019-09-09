@@ -90,7 +90,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(ProjectEngine::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = ProjectEngine::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		
 
@@ -126,16 +126,16 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(ProjectEngine::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = ProjectEngine::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(ProjectEngine::Shader::Create("assets/shaders/Texture.glsl"));
+		auto texShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = ProjectEngine::Texture2D::Create("assets/textures/Checkerboard.png");
 
 		m_BerserkerTexture = ProjectEngine::Texture2D::Create("assets/textures/Berserker.png");
 
-		std::dynamic_pointer_cast<ProjectEngine::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<ProjectEngine::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<ProjectEngine::OpenGLShader>(texShader)->Bind();
+		std::dynamic_pointer_cast<ProjectEngine::OpenGLShader>(texShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(ProjectEngine::Timestep ts) override
@@ -188,11 +188,14 @@ public:
 				ProjectEngine::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 			}
 		}
+
+		auto texShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		ProjectEngine::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		ProjectEngine::Renderer::Submit(texShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		m_BerserkerTexture->Bind();
-		ProjectEngine::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		ProjectEngine::Renderer::Submit(texShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		// Triangle
 		//ProjectEngine::Renderer::Submit(m_Shader, m_VertexArray);
@@ -212,10 +215,11 @@ public:
 	}
 
 private:
+	ProjectEngine::ShaderLibrary m_ShaderLibrary;
 	ProjectEngine::Ref<ProjectEngine::Shader> m_Shader;
 	ProjectEngine::Ref<ProjectEngine::VertexArray> m_VertexArray;
 
-	ProjectEngine::Ref<ProjectEngine::Shader> m_FlatColorShader, m_TextureShader;
+	ProjectEngine::Ref<ProjectEngine::Shader> m_FlatColorShader;
 	ProjectEngine::Ref<ProjectEngine::VertexArray> m_SquareVA;
 
 	ProjectEngine::Ref<ProjectEngine::Texture2D> m_Texture, m_BerserkerTexture;
