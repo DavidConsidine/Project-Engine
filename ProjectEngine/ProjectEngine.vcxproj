@@ -159,6 +159,7 @@
     <ClInclude Include="src\Core\LayerStack.h" />
     <ClInclude Include="src\Core\Log.h" />
     <ClInclude Include="src\Core\MouseButtonCodes.h" />
+    <ClInclude Include="src\Core\OrthographicCameraController.h" />
     <ClInclude Include="src\Core\Renderer\Buffer.h" />
     <ClInclude Include="src\Core\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Core\Renderer\OrthographicCamera.h" />
@@ -552,6 +553,7 @@
     <ClCompile Include="src\Core\Layer.cpp" />
     <ClCompile Include="src\Core\LayerStack.cpp" />
     <ClCompile Include="src\Core\Log.cpp" />
+    <ClCompile Include="src\Core\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Core\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Core\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Core\Renderer\RenderCommand.cpp" />
