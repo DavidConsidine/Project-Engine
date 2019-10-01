@@ -47,7 +47,7 @@ public:
 		squarevertexBuffer->SetLayout({
 				{ProjectEngine::ShaderDataType::Float3, "a_Position"},
 				{ProjectEngine::ShaderDataType::Float2, "a_TexCoord"}
-			});
+			}); 
 		m_SquareVA->AddVertexBuffer(squarevertexBuffer);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };

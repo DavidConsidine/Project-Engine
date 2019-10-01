@@ -66,6 +66,7 @@ namespace ProjectEngine
 			data.Height = height;
 
 			WindowResizeEvent event(width, height);
+			PE_CORE_WARN("{0}, {1}", width, height);
 			data.EventCallback(event);
 		});
 
