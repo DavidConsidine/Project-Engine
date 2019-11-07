@@ -1,7 +1,7 @@
 #pragma once
 
 #include "pepch.h"
-#include "Core/Core.h"
+#include "Core/Core/Core.h"
 
 namespace ProjectEngine
 {
@@ -29,7 +29,7 @@ namespace ProjectEngine
 		EventCategoryMouseButton	= BIT(4)
 	};
 
-#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
+#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; }\
 																virtual EventType GetEventType() const override { return GetStaticType(); }\
 																virtual const char* GetName() const override { return #type; }
 

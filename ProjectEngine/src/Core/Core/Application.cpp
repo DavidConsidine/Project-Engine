@@ -1,13 +1,13 @@
 #include "pepch.h"
 #include "Application.h"
 
-#include "Core/Log.h"
+#include "Log.h"
 
 #include "Core/Renderer/Renderer.h"
 
 #include "Input.h"
 
-#include "Core/Core/Timestep.h"
+#include "Timestep.h"
 
 #include "GLFW/glfw3.h"
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Core.h"
+#include "Core.h"
 
 namespace ProjectEngine
 {
@@ -25,6 +25,6 @@ namespace ProjectEngine
 		virtual float GetMouseYImpl() = 0;
 
 	private:
-		static Input* s_Instance;
+		static Scope<Input> s_Instance;
 	};
 }

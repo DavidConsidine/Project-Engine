@@ -2,7 +2,7 @@
 
 #include "pepch.h"
 
-#include "Core/Core.h"
+#include "Core.h"
 #include "Core/Events/Event.h"
 
 namespace ProjectEngine

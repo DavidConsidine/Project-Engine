@@ -2,9 +2,9 @@
 
 #include "Core.h"
 #include "Window.h"
-#include "Core/LayerStack.h"
-#include "Events/Event.h"
-#include "Events/ApplicationEvent.h"
+#include "LayerStack.h"
+#include "Core/Events/Event.h"
+#include "Core/Events/ApplicationEvent.h"
 
 #include "Core/ImGui/ImGuiLayer.h"
 

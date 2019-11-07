@@ -8,7 +8,7 @@
 #include "GLFW/glfw3.h"
 #include "glad/glad.h"
 
-#include "Core/Application.h"
+#include "Core/Core/Application.h"
 
 namespace ProjectEngine
 {

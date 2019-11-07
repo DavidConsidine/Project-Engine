@@ -1,13 +1,13 @@
 #include "pepch.h"
 #include "WindowsInput.h"
 
-#include "Core/Application.h"
+#include "Core/Core/Application.h"
 #include "GLFW/glfw3.h"
 
 namespace ProjectEngine
 {
 
-	Input* Input::s_Instance = new WindowsInput();
+	Scope<Input> Input::s_Instance = CreateScope<WindowsInput>();
 
 	bool WindowsInput::IsKeyPressedImpl(int keycode)
 	{

@@ -1,12 +1,16 @@
 [submodule "ProjectEngine/vendor/spdlog"]
 	path = ProjectEngine/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+	branch = v1.x
 [submodule "ProjectEngine/vendor/GLFW"]
 	path = ProjectEngine/vendor/GLFW
 	url = https://github.com/DavidConsidine/glfw
+	branch = master
 [submodule "ProjectEngine/vendor/imgui"]
 	path = ProjectEngine/vendor/imgui
 	url = https://github.com/DavidConsidine/imgui
+	branch = docking
 [submodule "ProjectEngine/vendor/glm"]
 	path = ProjectEngine/vendor/glm
 	url = https://github.com/g-truc/glm
+	branch = master

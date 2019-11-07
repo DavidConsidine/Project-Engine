@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Window.h"
+#include "Core/Core/Window.h"
 #include "Core/Renderer/GraphicsContext.h"
 #include <GLFW/glfw3.h>
 
@@ -28,7 +28,7 @@ namespace ProjectEngine
 		virtual void Shutdown();
 
 		GLFWwindow* m_Window;
-		GraphicsContext* m_Context;
+		Scope<GraphicsContext> m_Context;
 
 		struct WindowData
 		{
