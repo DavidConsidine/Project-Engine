@@ -18,6 +18,6 @@ namespace ProjectEngine
 		virtual const std::vector<Ref<VertexBuffer>>& GetVectorBuffers() const = 0;
 		virtual const Ref<IndexBuffer>& GetIndexBuffer() const = 0;
 
-		static VertexArray* Create();
+		static Ref<VertexArray> Create();
 	};
 }
