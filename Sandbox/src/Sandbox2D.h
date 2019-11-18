@@ -22,5 +22,7 @@ private:
 	ProjectEngine::Ref<ProjectEngine::VertexArray> m_SquareVA;
 	ProjectEngine::Ref<ProjectEngine::Shader> m_FlatColorShader;
 
+	ProjectEngine::Ref<ProjectEngine::Texture2D> m_CheckerboardTexture;
+
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 };
