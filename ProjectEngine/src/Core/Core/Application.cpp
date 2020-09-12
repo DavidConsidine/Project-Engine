@@ -1,11 +1,11 @@
 #include "pepch.h"
-#include "Application.h"
+#include "Core/Core/Application.h"
 
 #include "Log.h"
 
 #include "Core/Renderer/Renderer.h"
 
-#include "Input.h"
+#include "Core/Core/Input.h"
 
 #include "Timestep.h"
 
@@ -20,7 +20,7 @@ namespace ProjectEngine
 		PE_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
-		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window = Window::Create();
 		m_Window->SetEventCallback(PE_BIND_EVENT_FUNC(Application::OnEvent));
 
 		Renderer::Init();
@@ -29,6 +29,11 @@ namespace ProjectEngine
 		PushOverlay(m_ImGuiLayer);
 
 		
+	}
+
+	Application::~Application()
+	{
+		Renderer::Shutdown();
 	}
 
 	void Application::Run()

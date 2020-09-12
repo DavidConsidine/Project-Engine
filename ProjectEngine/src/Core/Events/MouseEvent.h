@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Event.h"
+#include "Core/Events/Event.h"
 
 namespace ProjectEngine
 {
-	class PROJECTENGINE_API MouseMovedEvent : public Event
+	class MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(float x, float y)
@@ -27,7 +27,7 @@ namespace ProjectEngine
 		float m_MouseX, m_MouseY;
 	};
 
-	class PROJECTENGINE_API MouseScrolledEvent : public Event
+	class MouseScrolledEvent : public Event
 	{
 	public:
 		MouseScrolledEvent(float xOffset, float yOffset)
@@ -50,7 +50,7 @@ namespace ProjectEngine
 		float m_XOffset, m_YOffset;
 	};
 
-	class PROJECTENGINE_API MouseEvent : public Event
+	class MouseEvent : public Event
 	{
 	public:
 		inline int GetMouseButton() const { return m_Button; }
@@ -63,7 +63,7 @@ namespace ProjectEngine
 		int m_Button;
 	};
 
-	class PROJECTENGINE_API MouseButtonPressedEvent : public MouseEvent
+	class MouseButtonPressedEvent : public MouseEvent
 	{
 	public:
 		MouseButtonPressedEvent(int button)
@@ -79,7 +79,7 @@ namespace ProjectEngine
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
-	class PROJECTENGINE_API MouseButtonReleasedEvent : public MouseEvent
+	class MouseButtonReleasedEvent : public MouseEvent
 	{
 	public:
 		MouseButtonReleasedEvent(int button)

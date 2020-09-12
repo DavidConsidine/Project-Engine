@@ -1,9 +1,8 @@
 #include "pepch.h"
 
-#include "RenderCommand.h"
-#include "Platform/OpenGL/OpenGLRendererAPI.h"
+#include "Core/Renderer/RenderCommand.h"
 
 namespace ProjectEngine
 {
-	Scope<RendererAPI> RenderCommand::s_RendererAPI = CreateScope<OpenGLRendererAPI>();
+	Scope<RendererAPI> RenderCommand::s_RendererAPI = RendererAPI::Create();
 }

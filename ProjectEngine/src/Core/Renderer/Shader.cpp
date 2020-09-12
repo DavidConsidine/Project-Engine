@@ -1,5 +1,5 @@
 #include "pepch.h"
-#include "Shader.h"
+#include "Core/Renderer/Shader.h"
 #include "Core/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 
@@ -16,7 +16,7 @@ namespace ProjectEngine
 			}
 			case RendererAPI::API::OpenGL:
 			{
-				return std::make_shared<OpenGLShader>(filepath);
+				return CreateRef<OpenGLShader>(filepath);
 			}
 		}
 
@@ -35,7 +35,7 @@ namespace ProjectEngine
 		}
 		case RendererAPI::API::OpenGL:
 		{
-			return std::make_shared<OpenGLShader>(name, vertexSrc, fragmentSrc);
+			return CreateRef<OpenGLShader>(name, vertexSrc, fragmentSrc);
 		}
 		}
 

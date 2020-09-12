@@ -1,8 +1,7 @@
 #include <ProjectEngine.h>
 #include <Core/Core/EntryPoint.h>
 
-#include "Platform/OpenGL/OpenGLShader.h"
-#include "imgui/imgui.h"
+#include <imgui/imgui.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
@@ -22,8 +21,7 @@ public:
 				 0.5f, -0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
 				 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
-		ProjectEngine::Ref<ProjectEngine::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(ProjectEngine::VertexBuffer::Create(vertices, sizeof(vertices)));
+		ProjectEngine::Ref<ProjectEngine::VertexBuffer> vertexBuffer = ProjectEngine::VertexBuffer::Create(vertices, sizeof(vertices));
 		ProjectEngine::BufferLayout layout = {
 			{ ProjectEngine::ShaderDataType::Float3, "a_Position" },
 			{ ProjectEngine::ShaderDataType::Float4, "a_Color" }
@@ -32,8 +30,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		unsigned int indices[3] = { 0, 1, 2 };
-		ProjectEngine::Ref<ProjectEngine::IndexBuffer> indexBuffer;
-		indexBuffer.reset(ProjectEngine::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		ProjectEngine::Ref<ProjectEngine::IndexBuffer> indexBuffer = ProjectEngine::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA = ProjectEngine::VertexArray::Create();
@@ -45,8 +42,7 @@ public:
 				-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		ProjectEngine::Ref<ProjectEngine::VertexBuffer> squarevertexBuffer;
-		squarevertexBuffer.reset(ProjectEngine::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		ProjectEngine::Ref<ProjectEngine::VertexBuffer> squarevertexBuffer = ProjectEngine::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 		squarevertexBuffer->SetLayout({
 				{ProjectEngine::ShaderDataType::Float3, "a_Position"},
 				{ProjectEngine::ShaderDataType::Float2, "a_TexCoord"}
@@ -54,8 +50,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squarevertexBuffer);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		ProjectEngine::Ref<ProjectEngine::IndexBuffer> squareindexBuffer;
-		squareindexBuffer.reset(ProjectEngine::IndexBuffer::Create(squareIndices, sizeof(squareIndices)));
+		ProjectEngine::Ref<ProjectEngine::IndexBuffer> squareindexBuffer = ProjectEngine::IndexBuffer::Create(squareIndices, sizeof(squareIndices));
 		m_SquareVA->SetIndexBuffer(squareindexBuffer);
 
 		std::string vertexSrc = R"(
@@ -137,8 +132,8 @@ public:
 
 		m_BerserkerTexture = ProjectEngine::Texture2D::Create("assets/textures/Berserker.png");
 
-		std::dynamic_pointer_cast<ProjectEngine::OpenGLShader>(texShader)->Bind();
-		std::dynamic_pointer_cast<ProjectEngine::OpenGLShader>(texShader)->UploadUniformInt("u_Texture", 0);
+		texShader->Bind();
+		texShader->SetInt("u_Texture", 0);
 	}
 
 	void OnUpdate(ProjectEngine::Timestep ts) override
@@ -154,8 +149,8 @@ public:
 				
 		static glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 		
-		std::dynamic_pointer_cast<ProjectEngine::OpenGLShader>(m_FlatColorShader)->Bind();
-		std::dynamic_pointer_cast<ProjectEngine::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+		m_FlatColorShader->Bind();
+		m_FlatColorShader->SetFloat3("u_Color", m_SquareColor);
 
 		for (int y = 0; y < 20; y++)
 		{

@@ -4,7 +4,7 @@
 
 namespace ProjectEngine
 {
-	class PROJECTENGINE_API Input
+	class Input
 	{
 	protected:
 		Input() = default;

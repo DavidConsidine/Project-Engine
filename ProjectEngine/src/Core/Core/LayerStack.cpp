@@ -1,13 +1,9 @@
 #include "pepch.h"
-#include "LayerStack.h"
+#include "Core/Core/LayerStack.h"
 
 
 namespace ProjectEngine
 {
-	LayerStack::LayerStack()
-	{
-	}
-
 	LayerStack::~LayerStack()
 	{
 		for (Layer* layer : m_Layers)

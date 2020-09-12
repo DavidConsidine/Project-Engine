@@ -1,6 +1,7 @@
 #pragma once
 
 // For use by Project Engine applications
+#include "Core/Core/Core.h"
 
 #include "Core/Core/Application.h"
 #include "Core/Core/Layer.h"

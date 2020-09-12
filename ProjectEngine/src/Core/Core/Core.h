@@ -43,21 +43,6 @@
 	#error "Unknown platform!"
 #endif // End of platform detection
 
-// DLL support
-#ifdef PE_PLATFORM_WINDOWS
-	#if PE_DYNAMIC_LINK
-		#ifdef PE_BUILD_DLL
-			#define PROJECTENGINE_API __declspec(dllexport)
-		#else
-			#define PROJECTENGINE_API __declspec(dllimport)
-		#endif
-	#else
-		#define PROJECTENGINE_API
-	#endif
-#else
-	#error Project Engine only supports Windows.
-#endif // End of Dll support
-
 #ifdef PE_DEBUG
 	#define PE_ENABLE_ASSERTS
 #endif

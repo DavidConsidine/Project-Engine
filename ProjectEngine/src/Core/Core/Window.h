@@ -23,7 +23,7 @@ namespace ProjectEngine
 	};
 
 	// Interface representing a desktop system based window
-	class PROJECTENGINE_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
@@ -42,6 +42,6 @@ namespace ProjectEngine
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static Window* Create(const WindowProperties& properties = WindowProperties());
+		static Scope<Window> Create(const WindowProperties& properties = WindowProperties());
 	};
 }

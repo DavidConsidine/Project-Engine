@@ -1,7 +1,6 @@
 #include "pepch.h"
-#include "Renderer.h"
-#include "Renderer2D.h"
-#include "Platform/OpenGL/OpenGLShader.h"
+#include "Core/Renderer/Renderer.h"
+#include "Core/Renderer/Renderer2D.h"
 
 namespace ProjectEngine
 {
@@ -11,6 +10,11 @@ namespace ProjectEngine
 	{
 		RenderCommand::Init();
 		Renderer2D::Init();
+	}
+
+	void Renderer::Shutdown()
+	{
+		Renderer2D::ShutDown();
 	}
 
 	void Renderer::OnWindowResize(uint32_t width, uint32_t height)
@@ -30,8 +34,8 @@ namespace ProjectEngine
 	void Renderer::Submit(const Ref<Shader>& shader, Ref<VertexArray>& vertexArray, const glm::mat4& transform)
 	{
 		shader->Bind();
-		std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4("u_ViewProjection", s_SceneData->ViewProjectionMatrix);
-		std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4("u_Transform", transform);
+		shader->SetMat4("u_ViewProjection", s_SceneData->ViewProjectionMatrix);
+		shader->SetMat4("u_Transform", transform);
 
 		vertexArray->Bind();
 		RenderCommand::DrawIndexed(vertexArray);

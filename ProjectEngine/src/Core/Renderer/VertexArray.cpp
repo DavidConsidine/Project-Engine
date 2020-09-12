@@ -1,5 +1,5 @@
 #include "pepch.h"
-#include "VertexArray.h"
+#include "Core/Renderer/VertexArray.h"
 #include "Core/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLVertexArray.h"
 
@@ -16,7 +16,7 @@ namespace ProjectEngine
 			}
 			case RendererAPI::API::OpenGL:
 			{
-				return std::make_shared<OpenGLVertexArray>();
+				return CreateRef<OpenGLVertexArray>();
 			}
 		}
 

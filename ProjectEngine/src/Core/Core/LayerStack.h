@@ -1,16 +1,16 @@
 #pragma once
 
 #include "Core/Core/Core.h"
-#include "Layer.h"
+#include "Core/Core/Layer.h"
 
 #include <vector>
 
 namespace ProjectEngine
 {
-	class PROJECTENGINE_API LayerStack
+	class LayerStack
 	{
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);

@@ -1,7 +1,7 @@
 #pragma once
-#include "OrthographicCamera.h"
+#include "Core/Renderer/OrthographicCamera.h"
 
-#include "Texture.h"
+#include "Core/Renderer/Texture.h"
 
 namespace ProjectEngine
 {

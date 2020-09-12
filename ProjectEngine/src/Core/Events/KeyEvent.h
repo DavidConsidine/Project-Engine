@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Event.h"
+#include "Core/Events/Event.h"
 
 namespace ProjectEngine
 {
-	class PROJECTENGINE_API KeyEvent : public Event
+	class KeyEvent : public Event
 	{
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
@@ -17,7 +17,7 @@ namespace ProjectEngine
 		int m_KeyCode;
 	};
 
-	class PROJECTENGINE_API KeyPressedEvent : public KeyEvent
+	class KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(int keycode, int repeatcount)
@@ -37,7 +37,7 @@ namespace ProjectEngine
 		int m_RepeatCount;
 	};
 
-	class PROJECTENGINE_API KeyReleasedEvent : public KeyEvent
+	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
 		KeyReleasedEvent(int keycode)
@@ -54,7 +54,7 @@ namespace ProjectEngine
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
 
-	class PROJECTENGINE_API KeyTypedEvent : public KeyEvent
+	class KeyTypedEvent : public KeyEvent
 	{
 	public:
 		KeyTypedEvent(int keycode)

@@ -1,4 +1,5 @@
 #pragma once
+#include "Core/Core/Core.h"
 
 #ifdef PE_PLATFORM_WINDOWS
 
@@ -15,6 +16,5 @@ extern ProjectEngine::Application* ProjectEngine::CreateApplication();
 		app->Run();
 		delete app;
 	}
-#else
-	#error Project Engine currently supports Windows only.
+
 #endif

@@ -1,9 +1,9 @@
 #include "pepch.h"
-#include "ImGuiLayer.h"
+#include "Core/ImGui/ImGuiLayer.h"
 
-#include "imgui.h"
-#include "examples/imgui_impl_opengl3.h"
-#include "examples/imgui_impl_glfw.h"
+#include <imgui.h>
+#include <examples/imgui_impl_opengl3.h>
+#include <examples/imgui_impl_glfw.h>
 
 #include "GLFW/glfw3.h"
 #include "glad/glad.h"

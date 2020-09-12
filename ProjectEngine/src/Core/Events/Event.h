@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pepch.h"
+
 #include "Core/Core/Core.h"
 
 namespace ProjectEngine
@@ -35,7 +36,7 @@ namespace ProjectEngine
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class PROJECTENGINE_API Event
+	class Event
 	{
 	public:
 		bool Handled = false;

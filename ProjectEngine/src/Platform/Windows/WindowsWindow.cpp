@@ -1,5 +1,5 @@
 #include "pepch.h"
-#include "WindowsWindow.h"
+#include "Platform/Windows/WindowsWindow.h"
 
 #include "Core/Events/ApplicationEvent.h"
 #include "Core/Events/KeyEvent.h"
@@ -16,9 +16,9 @@ namespace ProjectEngine
 		PE_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 	}
 
-	Window* Window::Create(const WindowProperties& properties)
+	Scope<Window> Window::Create(const WindowProperties& properties)
 	{
-		return new WindowsWindow(properties);
+		return CreateScope<WindowsWindow>(properties);
 	}
 
 	WindowsWindow::WindowsWindow(const WindowProperties& properties)
@@ -42,7 +42,6 @@ namespace ProjectEngine
 
 		if (s_GLFWInitialized == 0)
 		{
-			PE_CORE_INFO("Intializing GLFW");
 			int success = glfwInit();
 			PE_CORE_ASSERT(success, "Could not initialize GLFW!");
 
@@ -52,7 +51,7 @@ namespace ProjectEngine
 		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		++s_GLFWInitialized;
 		
-		m_Context = CreateScope<OpenGLContext>(m_Window);
+		m_Context = GraphicsContext::Create(m_Window);
 		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
@@ -148,10 +147,10 @@ namespace ProjectEngine
 	void WindowsWindow::Shutdown()
 	{
 		glfwDestroyWindow(m_Window);
+		--s_GLFWInitialized;
 
-		if (--s_GLFWInitialized == 0)
+		if (s_GLFWInitialized == 0)
 		{
-			PE_CORE_INFO("Terminating GLFW");
 			glfwTerminate();
 		}
 	}

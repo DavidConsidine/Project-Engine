@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Core.h"
-#include "Window.h"
+#include "Core/Core/Core.h"
+#include "Core/Core/Window.h"
 #include "LayerStack.h"
 #include "Core/Events/Event.h"
 #include "Core/Events/ApplicationEvent.h"
@@ -14,7 +14,7 @@ namespace ProjectEngine
 	{
 	public:
 		Application();
-		virtual ~Application() = default;
+		virtual ~Application();
 
 		void Run();
 
