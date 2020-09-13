@@ -14,6 +14,7 @@
 #include <unordered_set>
 
 #include "Core/Core/Log.h"
+#include "Core/Debug/Instrumentor.h"
 
 #ifdef PE_PLATFORM_WINDOWS
 	#include <Windows.h>
